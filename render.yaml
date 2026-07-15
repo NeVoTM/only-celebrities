@@ -1,14 +1,12 @@
+version: "1"
 services:
   - type: web
     name: only-celebrities
     runtime: static
-    buildCommand: "echo No build step needed for static site"
+    region: oregon
+    plan: free
+    buildCommand: "true"
     staticPublishPath: .
-    pullRequestPreviewsEnabled: true
-    headers:
-      - path: /*
-        name: X-Frame-Options
-        value: SAMEORIGIN
     routes:
       - type: rewrite
         source: /*
